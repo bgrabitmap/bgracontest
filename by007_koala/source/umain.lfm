@@ -1,0 +1,18 @@
+object MainForm: TMainForm
+  Left = 376
+  Height = 768
+  Top = 172
+  Width = 1024
+  Caption = 'by007'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnPaint = FormPaint
+  Position = poScreenCenter
+  LCLVersion = '1.4.2.0'
+  object Chronos: TTimer
+    Interval = 33
+    OnTimer = ChronosTimer
+    left = 24
+    top = 8
+  end
+end

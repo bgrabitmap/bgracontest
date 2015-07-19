@@ -1,0 +1,34 @@
+object Form1: TForm1
+  Left = 382
+  Height = 240
+  Top = 172
+  Width = 320
+  Caption = 'by007'
+  ClientHeight = 240
+  ClientWidth = 320
+  OnClose = FormClose
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnShow = FormShow
+  LCLVersion = '1.4.0.4'
+  object BGRAVirtualScreen1: TBGRAVirtualScreen
+    Left = 0
+    Height = 240
+    Top = 0
+    Width = 320
+    OnRedraw = BGRAVirtualScreen1Redraw
+    Align = alClient
+    Alignment = taLeftJustify
+    Color = clBlack
+    ParentColor = False
+    TabOrder = 0
+    OnResize = BGRAVirtualScreen1Resize
+  end
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 15
+    OnTimer = Timer1Timer
+    left = 16
+    top = 39
+  end
+end
