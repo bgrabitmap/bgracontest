@@ -1,0 +1,27 @@
+object Form1: TForm1
+  Left = 572
+  Height = 312
+  Top = 449
+  Width = 590
+  ClientHeight = 312
+  ClientWidth = 590
+  KeyPreview = True
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnKeyDown = FormKeyDown
+  OnShow = FormShow
+  LCLVersion = '1.4.0.4'
+  object Label1: TLabel
+    Left = 0
+    Height = 312
+    Top = 0
+    Width = 590
+    Align = alClient
+    Alignment = taCenter
+    Caption = 'Wall of covers'
+    Font.Height = -32
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+end

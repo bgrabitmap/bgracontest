@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Release"/>
+    <Units Count="35">
+      <Unit0>
+        <Filename Value="WallOfCoversDemo.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="19"/>
+        <UsageCount Value="81"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="unit1.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="Form1"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="Unit1"/>
+        <IsVisibleTab Value="True"/>
+        <CursorPos X="9" Y="284"/>
+        <UsageCount Value="81"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="walloftiles.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="WallOfTiles"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="7" Y="46"/>
+        <UsageCount Value="81"/>
+        <Loaded Value="True"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="wcbuttons.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="wcButtons"/>
+        <EditorIndex Value="2"/>
+        <CursorPos X="22" Y="515"/>
+        <UsageCount Value="32"/>
+        <Loaded Value="True"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="C:\lazarus\components\bgracontrols\bgravirtualscreen.pas"/>
+        <UnitName Value="BGRAVirtualScreen"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="34"/>
+        <CursorPos X="5" Y="53"/>
+        <UsageCount Value="13"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="wallofcovers.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="16" Y="7"/>
+        <UsageCount Value="14"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="C:\lazarus\components\bgracontrols\bgraimagelist.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="34"/>
+        <CursorPos X="3" Y="53"/>
+        <UsageCount Value="4"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="C:\lazarus\components\bgracontrols\bgragraphiccontrol.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="31"/>
+        <CursorPos X="3" Y="50"/>
+        <UsageCount Value="4"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="C:\lazarus\lcl\controls.pp"/>
+        <UnitName Value="Controls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1578"/>
+        <CursorPos X="14" Y="1596"/>
+        <UsageCount Value="12"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="C:\lazarus\components\bgracontrols\bgraspriteanimation.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="34"/>
+        <CursorPos X="3" Y="53"/>
+        <UsageCount Value="4"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="C:\lazarus\lcl\imglist.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="147"/>
+        <CursorPos X="3" Y="102"/>
+        <UsageCount Value="4"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="C:\lazarus\lcl\include\imglist.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="47"/>
+        <CursorPos Y="66"/>
+        <UsageCount Value="4"/>
+      </Unit11>
+      <Unit12>
+        <Filename Value="C:\lazarus\lcl\include\customform.inc"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="34"/>
+      </Unit12>
+      <Unit13>
+        <Filename Value="C:\lazarus\components\bgrabitmap8.7\bgradefaultbitmap.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="5540"/>
+        <CursorPos Y="5560"/>
+        <UsageCount Value="31"/>
+      </Unit13>
+      <Unit14>
+        <Filename Value="C:\lazarus\components\bgrabitmap8.7\bgrapixel.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="229"/>
+        <CursorPos X="18" Y="252"/>
+        <UsageCount Value="30"/>
+      </Unit14>
+      <Unit15>
+        <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\objpas\types.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="65"/>
+        <CursorPos X="3" Y="83"/>
+        <UsageCount Value="4"/>
+      </Unit15>
+      <Unit16>
+        <Filename Value="C:\lazarus\lcl\extctrls.pp"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="166"/>
+        <CursorPos X="14" Y="185"/>
+        <UsageCount Value="4"/>
+      </Unit16>
+      <Unit17>
+        <Filename Value="C:\lazarus\lcl\customtimer.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="33"/>
+        <CursorPos X="14" Y="51"/>
+        <UsageCount Value="4"/>
+      </Unit17>
+      <Unit18>
+        <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\objpas\classes\classesh.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="102"/>
+        <CursorPos X="27" Y="120"/>
+        <UsageCount Value="11"/>
+      </Unit18>
+      <Unit19>
+        <Filename Value="C:\lazarus\components\bgrabitmap8.7\bgracustombitmap.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1604"/>
+        <CursorPos X="3" Y="1620"/>
+        <UsageCount Value="9"/>
+      </Unit19>
+      <Unit20>
+        <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\inc\objpas.inc"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="4"/>
+      </Unit20>
+      <Unit21>
+        <Filename Value="C:\lazarus\fpc\2.6.4\source\packages\fcl-base\src\contnrs.pp"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="4"/>
+      </Unit21>
+      <Unit22>
+        <Filename Value="C:\lazarus\components\bgrabitmap8.7\bgrabitmaptypes.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="331"/>
+        <CursorPos X="39" Y="358"/>
+        <UsageCount Value="4"/>
+      </Unit22>
+      <Unit23>
+        <Filename Value="C:\lazarus\components\bgrabitmap8.7\bgrabitmap.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="65"/>
+        <CursorPos X="9" Y="84"/>
+        <UsageCount Value="29"/>
+      </Unit23>
+      <Unit24>
+        <Filename Value="C:\lazarus\components\bgrabitmap8.7\bgrawinbitmap.pas"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="15" Y="56"/>
+        <UsageCount Value="10"/>
+      </Unit24>
+      <Unit25>
+        <Filename Value="C:\lazarus\components\bgrabitmap8.7\bgralclbitmap.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="649"/>
+        <CursorPos Y="668"/>
+        <UsageCount Value="11"/>
+      </Unit25>
+      <Unit26>
+        <Filename Value="AnimateEasing.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="65"/>
+        <CursorPos X="25" Y="57"/>
+        <UsageCount Value="34"/>
+      </Unit26>
+      <Unit27>
+        <Filename Value="C:\lazarus\components\bgrabitmap8.7\bgraresample.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="87"/>
+        <CursorPos X="23" Y="101"/>
+        <UsageCount Value="10"/>
+      </Unit27>
+      <Unit28>
+        <Filename Value="C:\lazarus\components\bgrabitmap8.7\bgrabitmap8.7\bgracustombitmap.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="665"/>
+        <CursorPos X="16" Y="679"/>
+        <UsageCount Value="6"/>
+      </Unit28>
+      <Unit29>
+        <Filename Value="C:\lazarus\components\bgrabitmap8.7\bgrabitmap8.7\bgradefaultbitmap.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="735"/>
+        <CursorPos X="15" Y="749"/>
+        <UsageCount Value="6"/>
+      </Unit29>
+      <Unit30>
+        <Filename Value="C:\lazarus\components\bgrabitmap8.7\bgrabitmap8.7\bgrapixel.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="265"/>
+        <CursorPos X="70" Y="279"/>
+        <UsageCount Value="4"/>
+      </Unit30>
+      <Unit31>
+        <Filename Value="C:\lazarus\fpc\2.6.4\source\rtl\objpas\classes\persist.inc"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="10"/>
+      </Unit31>
+      <Unit32>
+        <Filename Value="C:\lazarus\components\bgrabitmap8.7\geometrytypes.inc"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="3" Y="14"/>
+        <UsageCount Value="10"/>
+      </Unit32>
+      <Unit33>
+        <Filename Value="C:\lazarus\components\bgracontrols\bcimagebutton.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="698"/>
+        <CursorPos X="17" Y="739"/>
+        <UsageCount Value="12"/>
+      </Unit33>
+      <Unit34>
+        <Filename Value="C:\lazarus\components\bgracontrols\bctypes.pas"/>
+        <UnitName Value="BCTypes"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="13" Y="30"/>
+        <UsageCount Value="12"/>
+      </Unit34>
+    </Units>
+    <JumpHistory Count="30" HistoryIndex="29">
+      <Position1>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="113" Column="2" TopLine="88"/>
+      </Position1>
+      <Position2>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="166" Column="5" TopLine="70"/>
+      </Position2>
+      <Position3>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="162" Column="16"/>
+      </Position3>
+      <Position4>
+        <Filename Value="wcbuttons.pas"/>
+        <Caret Line="21" Column="21" TopLine="4"/>
+      </Position4>
+      <Position5>
+        <Filename Value="wcbuttons.pas"/>
+        <Caret Line="162" Column="12" TopLine="159"/>
+      </Position5>
+      <Position6>
+        <Filename Value="wcbuttons.pas"/>
+        <Caret Line="158" Column="33" TopLine="142"/>
+      </Position6>
+      <Position7>
+        <Filename Value="wcbuttons.pas"/>
+        <Caret Line="160" Column="15" TopLine="137"/>
+      </Position7>
+      <Position8>
+        <Filename Value="wcbuttons.pas"/>
+        <Caret Line="161" Column="17" TopLine="10"/>
+      </Position8>
+      <Position9>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="86" Column="14" TopLine="74"/>
+      </Position9>
+      <Position10>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="26" Column="32" TopLine="26"/>
+      </Position10>
+      <Position11>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="200" Column="37" TopLine="164"/>
+      </Position11>
+      <Position12>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="84" Column="26" TopLine="57"/>
+      </Position12>
+      <Position13>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="83" Column="26" TopLine="56"/>
+      </Position13>
+      <Position14>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="82" Column="26" TopLine="55"/>
+      </Position14>
+      <Position15>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="143" TopLine="129"/>
+      </Position15>
+      <Position16>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="142" TopLine="128"/>
+      </Position16>
+      <Position17>
+        <Filename Value="wcbuttons.pas"/>
+        <Caret Line="149" TopLine="47"/>
+      </Position17>
+      <Position18>
+        <Filename Value="wcbuttons.pas"/>
+        <Caret Line="63" Column="4" TopLine="48"/>
+      </Position18>
+      <Position19>
+        <Filename Value="wcbuttons.pas"/>
+        <Caret Line="149" Column="12" TopLine="122"/>
+      </Position19>
+      <Position20>
+        <Filename Value="wcbuttons.pas"/>
+        <Caret Line="62" TopLine="40"/>
+      </Position20>
+      <Position21>
+        <Filename Value="wcbuttons.pas"/>
+        <Caret Line="24" Column="22"/>
+      </Position21>
+      <Position22>
+        <Filename Value="wcbuttons.pas"/>
+        <Caret Line="84" Column="25" TopLine="59"/>
+      </Position22>
+      <Position23>
+        <Filename Value="wcbuttons.pas"/>
+        <Caret Line="30" Column="20" TopLine="16"/>
+      </Position23>
+      <Position24>
+        <Filename Value="wcbuttons.pas"/>
+        <Caret Line="393" Column="34" TopLine="372"/>
+      </Position24>
+      <Position25>
+        <Filename Value="wcbuttons.pas"/>
+        <Caret Line="534" Column="45" TopLine="511"/>
+      </Position25>
+      <Position26>
+        <Filename Value="unit1.pas"/>
+        <Caret Line="23" Column="19" TopLine="10"/>
+      </Position26>
+      <Position27>
+        <Filename Value="walloftiles.pas"/>
+        <Caret Line="217" Column="47" TopLine="203"/>
+      </Position27>
+      <Position28>
+        <Filename Value="walloftiles.pas"/>
+        <Caret Line="282" Column="48" TopLine="267"/>
+      </Position28>
+      <Position29>
+        <Filename Value="walloftiles.pas"/>
+        <Caret Line="196" TopLine="177"/>
+      </Position29>
+      <Position30>
+        <Filename Value="walloftiles.pas"/>
+        <Caret Line="177" TopLine="159"/>
+      </Position30>
+    </JumpHistory>
+  </ProjectSession>
+</CONFIG>
