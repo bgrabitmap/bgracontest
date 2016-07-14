@@ -1,0 +1,53 @@
+# Makefile generic - build rules
+
+.PHONY: all docs
+
+# Main objective: the whole project
+all: adbanner $(BINDIR)$(BINARY)$(BINSUF)
+	@echo "Finished $(PROJECT)"
+	@echo "To create the documentation, run 'make docs'."
+
+# Executable.
+$(BINDIR)$(BINARY)$(BINSUF) : $(MAINSRC) $(SRCFILES)
+	fpc $(FLAGS) -Fu$(SRCDIR) -Fu$(SRCDIR)* -FU$(OBJDIR) $< -o$@
+	@echo "$@ ready!"
+
+# Documentation.
+docs:
+	pasdoc -T $(PROJECT) -O html --cache-dir $(OBJDIR) -E $(DOCDIR) --auto-abstract $(SRCFILES)
+
+# Returns some variables.
+status: adbanner
+	@echo "-----------------"
+	@echo "- Status Report -"
+	@echo "-----------------"
+	@echo "  Project : $(PROJECT)"
+	@echo "  Platform : $(PLATFORM)"
+	@echo "  Compiler options : $(FLAGS) $(EFLAGS)"
+	@echo "  Units : $(SRCFILES)"
+	@echo "  Main source : $(MAINSRC)"
+	@echo "  Binary : $(BINDIR)$(BINARY)$(BINSUF)"
+
+# Cleans everything.
+veryclean: clean
+	$(DELETE) $(BINDIR)$(BINARY)$(BINSUF)
+
+# Clean temporary files.
+clean:
+	$(DELETE) $(OBJFILES)
+
+# Show all options.
+help: adbanner
+	@echo "--------"
+	@echo "- Help -"
+	@echo "--------"
+	@echo "make all            } Builds the whole project."
+	@echo "make docs           } Builds internal documentation."
+	@echo "make clean          } Deletes temporary files."
+	@echo "make veryclean      } Deletes all builded files."
+	@echo "make status         } Shows some configuration variables."
+	@echo "make help           } Shows this help."
+
+# Some info.
+adbanner:
+	@echo "$(PROJECT) - "

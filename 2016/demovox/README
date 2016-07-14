@@ -1,0 +1,80 @@
+                               Graphic demo
+                               ============
+========
+Contents
+========
+
+ - Introduction
+ - License
+ - Compilation
+ - How to use
+ - Contact info
+
+
+
+============
+Introduction
+============
+
+  A graphical demo for Lazarus/FPC.  For more info, visit and read:
+  http://forum.lazarus.freepascal.org/index.php/topic,32626.0.html
+
+  This is a very simple voxel renderer.  You'll need Allegro 5.2.  It isn't
+  included in the package because it is quite big.  You can get it from
+  http://liballeg.org/.  You can get Allegro.pas from
+  http://allegro-pas.sf.net/.  Note that Allegro.pas is in alpha status
+  yet.
+  
+
+
+
+=======
+License
+=======
+
+  Read file LICENSE for complete license text.
+
+
+
+===========
+Compilation
+===========
+
+  There's a project for Lazarus (voxel.lpi).  It should do the work.  Note
+  that it has optimization activated and doesn't include debug info.
+
+  Open a console and go to the project directory.  In most cases just use
+  "cd project".
+
+  Execute "fix.bat" on Windows or "./fix.sh" on GNU/Linux and follow the
+  on screen instructions.
+
+  Execute the "make" command.  This should create the executable files.
+  If you have problems read the "Contact info" section.
+
+  Execute "make help" to see all available options.  You can also edit
+  makefile to change the compilation options.
+
+
+==========
+How to use
+==========
+
+  Just execute it.  Use WASD, cursors and mouse to move around.  Shift key
+  modifies height, and F12 takes a shoot (note: it will overwrite the
+  previous one!).
+
+  You can pass two picture files in command line.  For example:
+
+  #./voxel height-2.pcx ground.pcx
+
+  First is the heightmap and second are the colors.  See the examples
+  provided.
+
+
+
+============
+Contact info
+============
+
+  You can ask at the Lazarus forum (see introduction).

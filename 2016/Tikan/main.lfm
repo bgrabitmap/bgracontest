@@ -1,0 +1,131 @@
+object Form1: TForm1
+  Left = 470
+  Height = 590
+  Top = 153
+  Width = 1053
+  Caption = 'Form1'
+  ClientHeight = 590
+  ClientWidth = 1053
+  OnCreate = FormCreate
+  OnShow = FormShow
+  LCLVersion = '1.7'
+  object Panel1: TPanel
+    Left = 0
+    Height = 40
+    Top = 0
+    Width = 1053
+    Align = alTop
+    ClientHeight = 40
+    ClientWidth = 1053
+    TabOrder = 0
+    object Button1: TButton
+      Left = 8
+      Height = 25
+      Top = 8
+      Width = 75
+      Caption = 'Button1'
+      OnClick = Button1Click
+      TabOrder = 0
+    end
+    object Button2: TButton
+      Left = 82
+      Height = 25
+      Top = 8
+      Width = 75
+      Caption = 'Button2'
+      OnClick = Button2Click
+      TabOrder = 1
+    end
+    object Button3: TButton
+      Left = 160
+      Height = 25
+      Top = 8
+      Width = 75
+      Caption = 'Button3'
+      OnClick = Button3Click
+      TabOrder = 2
+    end
+    object Button4: TButton
+      Left = 240
+      Height = 25
+      Top = 8
+      Width = 75
+      Caption = 'Button4'
+      OnClick = Button4Click
+      TabOrder = 3
+    end
+    object Button5: TButton
+      Left = 408
+      Height = 25
+      Top = 6
+      Width = 75
+      Caption = 'Button5'
+      OnClick = Button5Click
+      TabOrder = 4
+    end
+    object Button6: TButton
+      Left = 488
+      Height = 25
+      Top = 6
+      Width = 75
+      Caption = 'Button6'
+      OnClick = Button6Click
+      TabOrder = 5
+    end
+    object Edit1: TEdit
+      Left = 320
+      Height = 23
+      Top = 8
+      Width = 80
+      TabOrder = 6
+      Text = '01:47'
+    end
+    object Button7: TButton
+      Left = 568
+      Height = 25
+      Top = 6
+      Width = 73
+      Caption = 'Button7'
+      OnClick = Button7Click
+      TabOrder = 7
+    end
+    object Button8: TButton
+      Left = 696
+      Height = 25
+      Top = 6
+      Width = 75
+      Caption = 'Button8'
+      OnClick = Button8Click
+      TabOrder = 8
+    end
+    object Button9: TButton
+      Left = 776
+      Height = 25
+      Top = 6
+      Width = 75
+      Caption = 'Button9'
+      OnClick = Button9Click
+      TabOrder = 9
+    end
+    object Button10: TButton
+      Left = 848
+      Height = 25
+      Top = 6
+      Width = 75
+      Caption = 'Button10'
+      OnClick = Button10Click
+      TabOrder = 10
+    end
+  end
+  object Timer1: TTimer
+    Enabled = False
+    OnTimer = Timer1Timer
+    left = 655
+    top = 3
+  end
+  object Timer2: TTimer
+    OnTimer = Timer2Timer
+    left = 952
+    top = 3
+  end
+end
