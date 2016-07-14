@@ -1,0 +1,33 @@
+object Form1: TForm1
+  Left = 443
+  Height = 240
+  Top = 167
+  Width = 320
+  Caption = 'Form1'
+  ClientHeight = 240
+  ClientWidth = 320
+  LCLVersion = '1.6.0.4'
+  WindowState = wsMaximized
+  object BGLVirtualScreen1: TBGLVirtualScreen
+    Left = 0
+    Height = 240
+    Top = 0
+    Width = 320
+    OnRedraw = BGLVirtualScreen1Redraw
+    Align = alClient
+    BevelWidth = 0
+    Color = clBlack
+    ParentColor = False
+    TabOrder = 0
+    UseDockManager = False
+    OnElapse = BGLVirtualScreen1Elapse
+    OnLoadTextures = BGLVirtualScreen1LoadTextures
+    OnUnloadTextures = BGLVirtualScreen1UnloadTextures
+  end
+  object Timer1: TTimer
+    Interval = 15
+    OnTimer = Timer1Timer
+    left = 95
+    top = 134
+  end
+end

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>BGRABitmap.js</title>
+    <script src="bgrabitmap.js"></script>
+    <script>
+        function DrawWindows7ToolBar(Bitmap, ARect) {
+            var ARect2;
+            var ctx;
+            var grd;
+
+            ARect2 = Rect(ARect.Left, ARect.Top + 3, ARect.Right, ARect.Bottom - 3);
+
+            ctx = Bitmap.Canvas2D;
+
+            grd = ctx.createLinearGradient(0, 0, 0, ARect2.Bottom);
+            grd.addColorStop(0, 'rgb(252, 254, 255)');
+            grd.addColorStop(1, 'rgb(243, 248, 253)');
+            
+            ctx.fillStyle = grd;
+            ctx.fillRect(ARect2.Left, ARect2.Top, ARect2.Right, ARect2.Bottom * 0.5);
+
+            grd = ctx.createLinearGradient(0, 0, 0, ARect2.Bottom);
+            grd.addColorStop(0, 'rgb(238, 243, 250)');
+            grd.addColorStop(1, 'rgb(238, 244, 251)');
+            
+            ctx.fillStyle = grd;
+            ctx.fillRect(ARect2.Left, ARect2.Bottom * 0.5, ARect2.Right, ARect2.Bottom * 0.5);
+            
+            ARect2 = Rect(ARect.Left + 1, ARect.Top + 3, ARect.Right - 2, ARect.Bottom - 3);
+
+            grd = ctx.createLinearGradient(0, 0, 0, ARect2.Bottom);
+            grd.addColorStop(0, 'rgb(249, 252, 255)');
+            grd.addColorStop(1, 'rgb(230, 240, 250)');
+            
+            ctx.fillStyle = grd;
+            ctx.fillRect(ARect2.Left, ARect2.Top, ARect2.Right, ARect2.Bottom * 0.5);
+
+            grd = ctx.createLinearGradient(0, 0, 0, ARect2.Bottom);
+            grd.addColorStop(0, 'rgb(220, 230, 244)');
+            grd.addColorStop(1, 'rgb(221, 233, 247)');
+            
+            ctx.fillStyle = grd;
+            ctx.fillRect(ARect2.Left, ARect2.Bottom * 0.5, ARect2.Right, ARect2.Bottom * 0.5);
+
+            Bitmap.SetHorizLine(ARect.Left, ARect.Top, ARect.Right - 1, BGRA(169, 191, 214));
+            Bitmap.SetHorizLine(ARect.Left, ARect.Top + 1, ARect.Right - 1, BGRA(250, 252, 253));
+            Bitmap.SetHorizLine(ARect.Left, ARect.Top + 2, ARect.Right - 1, BGRA(253, 254, 255));
+
+            Bitmap.SetHorizLine(ARect.Left, ARect.Bottom - 3, ARect.Right - 1, BGRA(228, 239, 251));
+            Bitmap.SetHorizLine(ARect.Left, ARect.Bottom - 2, ARect.Right - 1, BGRA(205, 218, 234));
+            Bitmap.SetHorizLine(ARect.Left, ARect.Bottom - 1, ARect.Right - 1, BGRA(160, 175, 195));
+        }
+
+        function draw1() {
+            var canvas = document.getElementById('canvas');
+ 
+            var bmp = new BGRABitmap(canvas);
+           
+            bmp.Fill(BGRABlack);
+ 
+            for (var x=0; x < bmp.Width; x++)
+              bmp.SetPixel(x,0, BGRA(x,x,x));
+           
+            var ctx = bmp.Canvas2D;
+            ctx.beginPath();
+            ctx.moveTo(20,20);
+            ctx.lineTo(120,20);
+            ctx.lineTo(120,120);
+            ctx.closePath();
+            ctx.stroke();
+           
+            bmp.ClipRect = Rect(0,0,bmp.Width/2,bmp.Height);
+            bmp.SetRectangle(1,1,bmp.Width-2,bmp.Height-2, BGRA(0,255,0));
+            bmp.NoClip();
+           
+            bmp.SetRectangle(5,5,bmp.Width-6,bmp.Height-6, BGRA(255,255,0));
+            
+            DrawWindows7ToolBar(bmp, Rect(0, 0, bmp.Width, 50));
+            //bmp.SetFilterGrayscale();
+            //bmp.SetFilterInvert();
+            //bmp.SetFilterGameBoy();
+            //bmp.SetFilterBrightness(100);
+            //bmp.SetFilterThreshold(128);
+            bmp.Draw(canvas, 0, 0);
+        }
+
+        var j = 0;
+
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            var bmp = new BGRABitmap(canvas);
+            
+            for (var i=0; i< bmp.Width; i++) {
+                var r = Math.floor((Math.random() * 255) + 1);
+                var g = Math.floor((Math.random() * 255) + 1);
+                var b = Math.floor((Math.random() * 255) + 1);
+                var h = Math.floor((Math.random() * bmp.Height) + 1);
+                if (h < 10) {
+                    h = 10;
+                }
+                var y = Math.floor((bmp.Height - h) / 2);
+                bmp.SetVertLine(i, y, bmp.Height - y, BGRA(r, g, b));
+            }
+            
+            bmp.SetRectangle(j, j, bmp.Width - 1 - j, bmp.Height - 1 - j, BGRABlack);
+
+            bmp.Draw(canvas, 0, 0);
+
+            j++;
+
+            if (j == bmp.Width) {
+                j = 0;
+            }
+        }
+        </script>
+</head>
+
+<body onload="setInterval(draw, 15);">
+    <canvas id="canvas" width="600" height="337"></canvas>
+</body>
+
+</html>
