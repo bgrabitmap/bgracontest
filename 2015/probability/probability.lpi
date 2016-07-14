@@ -28,22 +28,24 @@
         <LaunchingApplication PathPlusParams="\usr\X11R6\bin\xterm -T 'Lazarus Run Output' -e $(LazarusDir)\tools\runwait.sh $(TargetCmdLine)"/>
       </local>
     </RunParams>
-    <RequiredPackages Count="3">
+    <RequiredPackages Count="4">
       <Item1>
-        <PackageName Value="BGRABitmapPack4LCL_OpenGL"/>
+        <PackageName Value="BGLControls"/>
       </Item1>
       <Item2>
-        <PackageName Value="LCL"/>
+        <PackageName Value="BGRABitmapPack"/>
       </Item2>
       <Item3>
-        <PackageName Value="LazOpenGLContext"/>
+        <PackageName Value="LCL"/>
       </Item3>
+      <Item4>
+        <PackageName Value="LazOpenGLContext"/>
+      </Item4>
     </RequiredPackages>
     <Units Count="9">
       <Unit0>
         <Filename Value="probability.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="probability"/>
       </Unit0>
       <Unit1>
         <Filename Value="mainunit.pas"/>
