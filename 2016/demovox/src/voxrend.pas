@@ -252,53 +252,135 @@ IMPLEMENTATION
 
 (* Render. *)
   PROCEDURE TvxrHeightmap.Render (aCamera: TvxrCamera);
+  const ResolutionX = 250;
+        GrainSizeY = 3;
+        Precision = 32768;
   VAR
     Ray, MaxHeight, VoxHeight, CamY: INTEGER;
+    MaxHeightWaiting: INTEGER;
+    ColorWaiting: ALLEGRO_COLOR;
     AngleRay, iRay,
-    vX, vZ, iX, iZ,
-    vDist: DOUBLE;
+    iX,iZ: DOUBLE;
+    vX0Main,vX0Frac,
+    vZ0Main,vZ0Frac,
+    vXMain,vXFrac,
+    vZMain,vZFrac,
+    iXMain,iXFrac,
+    iZMain,iZFrac,
+    vDist: NativeInt;
+    MapPos: NativeInt;
+    x0,x1,xStep: Single;
+    Color: ALLEGRO_COLOR;
   BEGIN
     al_clear_to_color (fSkyColor);
     AngleRay := aCamera.AngY - aCamera.FOV / 2;
     CamY := TRUNC (aCamera.Y);
-    iRay := aCamera.FOV / aCamera.fWidth;
-    FOR Ray := 1 TO aCamera.fWidth DO
+    iRay := aCamera.FOV / ResolutionX;
+    vX0Main := floor(aCamera.X);
+    vX0Frac := trunc((aCamera.X-vX0Main)*Precision);
+    vZ0Main := floor(aCamera.Z);
+    vZ0Frac := trunc((aCamera.Z-vZ0Main)*Precision);
+    xStep := aCamera.fWidth/ ResolutionX;
+    x0 := 0;
+    x1 := xStep;
+    FOR Ray := 1 TO ResolutionX DO
     BEGIN
+      ColorWaiting := fSkyColor;
+      MaxHeightWaiting := aCamera.fHeight;
       MaxHeight := aCamera.fHeight;
-    { Ray equation. }
-      vX := TRUNC (aCamera.X); vZ := TRUNC (aCamera.Z);
+      vXMain := vX0Main;
+      vXFrac := vX0Frac;
+      vZMain := vZ0Main;
+      vZFrac := vZ0Frac;
+      { Ray equation. }
       iX := cos (AngleRay); iZ := sin (AngleRay);
-      WHILE
-	(0 <= vX) AND (vX < fWidth) AND
-	(0 <= vZ) AND (vZ < fHeight)
+      iXMain := floor(iX);
+      iXFrac := trunc((iX-iXMain)*Precision);
+      iZMain := floor(iZ);
+      iZFrac := trunc((iZ-iZMain)*Precision);
+      vDist := 0;
+      WHILE (MaxHeight > 0)
       DO BEGIN
-      { Get voxel distance. }
-	vDist := sqrt (sqr (ABS (vX - aCamera.X)) + sqr (vZ - aCamera.Z));
-	IF vDist > 0 THEN { To avoid "division by 0" }
+        { Next voxel. }
+        vXMain := vXMain + iXMain; vZMain := vZMain + iZMain;
+        vXFrac := vXFrac + iXFrac; vZFrac := vZFrac + iZFrac;
+        if vXFrac >= Precision then
+        begin
+          dec(vXFrac, Precision);
+          inc(vXMain);
+        end;
+        if vZFrac >= Precision then
+        begin
+          dec(vZFrac, Precision);
+          inc(vZMain);
+        end;
+        inc(vDist);
+        if NOT ((0 <= vXMain) AND (vXMain < fWidth) AND
+	   (0 <= vZMain) AND (vZMain < fHeight)) then break;
+        MapPos := (vZMain * fWidth) + vXMain;
+        Color := fColorMap[MapPos];
+      { skip voxels that are of the same color }
+        repeat
+          vXMain := vXMain + iXMain; vZMain := vZMain + iZMain;
+          vXFrac := vXFrac + iXFrac; vZFrac := vZFrac + iZFrac;
+          if vXFrac >= Precision then
+          begin
+            dec(vXFrac, Precision);
+            inc(vXMain);
+          end;
+          if vZFrac >= Precision then
+          begin
+            dec(vZFrac, Precision);
+            inc(vZMain);
+          end;
+          inc(vDist);
+        until NOT ((0 <= vXMain) AND (vXMain < fWidth) AND
+           (0 <= vZMain) AND (vZMain < fHeight)) OR
+           NOT CompareMem(@fColorMap[(vZMain * fWidth) + vXMain],@Color,sizeof(ALLEGRO_COLOR));
+        vXMain := vXMain - iXMain; vZMain := vZMain - iZMain;
+        vXFrac := vXFrac - iXFrac; vZFrac := vZFrac - iZFrac;
+        if vXFrac < 0 then
+        begin
+          inc(vXFrac, Precision);
+          dec(vXMain);
+        end;
+        if vZFrac < 0 then
+        begin
+          inc(vZFrac, Precision);
+          dec(vZMain);
+        end;
+        dec(vDist);
+        MapPos := (vZMain * fWidth) + vXMain;
+
+      { Get current voxel height.  Then project it to screen. }
+	VoxHeight := -fHeightMap[MapPos] + CamY;
+	VoxHeight := (VoxHeight * aCamera.fScreenAt) div vDist + aCamera.HorizonLine;
+      { If it's over the previous voxel, render waiting one. }
+	IF (VoxHeight < MaxHeight-GrainSizeY) and
+          (MaxHeightWaiting < MaxHeight) THEN
 	BEGIN
-	{ Get current voxel height.  Then project it to screen. }
-	  VoxHeight := -GetHeight (TRUNC (vX), TRUNC (vZ)) + CamY;
-	  VoxHeight := TRUNC ((VoxHeight * aCamera.fScreenAt) / vDist) + aCamera.HorizonLine;
-	{ If it's over the previous voxel, render it. }
-	  IF VoxHeight < MaxHeight THEN
-	  BEGIN
-	  { Note that the next line fails! (?)  But it should, shouldn't?
-	    al_draw_line (Ray, VoxHeight, Ray, MaxHeight, fColorMap[TRUNC ((vz* fWidth) + vX)], 1);
-	
-	    Also, as said in Allegro.cc, rectangles are faster than lines.
-	    }
-	    al_draw_filled_rectangle (
-	      Ray - 0.75, VoxHeight, Ray - 0.25, MaxHeight,
-	      fColorMap[(TRUNC (vz) * fWidth) + TRUNC (vX)]
-	    );
-	    MaxHeight := VoxHeight
-	  END
-	END;
-      { Next voxel. }
-	vX := vX + iX; vZ := vZ + iZ
+          al_draw_filled_rectangle (
+  	    x0, MaxHeightWaiting, x1, MaxHeight,
+  	    ColorWaiting );
+          MaxHeight := MaxHeightWaiting;
+        END;
+      { Note that there is a voxel to be drawn }
+        IF VoxHeight < MaxHeightWaiting then
+        begin
+          MaxHeightWaiting := VoxHeight;
+          ColorWaiting := Color;
+        end;
       END;
+      if MaxHeightWaiting < MaxHeight then
+      begin
+        al_draw_filled_rectangle (
+          x0, MaxHeightWaiting, x1, MaxHeight,
+          ColorWaiting );
+      end;
     { Next ray. }
-      AngleRay := AngleRay + iRay
+      AngleRay := AngleRay + iRay;
+      x0 += xStep;
+      x1 += xStep;
     END
   END;
 

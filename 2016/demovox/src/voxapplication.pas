@@ -125,8 +125,8 @@ IMPLEMENTATION
     CASE aEvent._type OF
     ALLEGRO_EVENT_KEY_DOWN:
       CASE aEvent.keyboard.keycode OF
-	ALLEGRO_KEY_UP, ALLEGRO_KEY_W: fSpeed := 1;
-	ALLEGRO_KEY_DOWN, ALLEGRO_KEY_S: fSpeed := -1;
+	ALLEGRO_KEY_UP, ALLEGRO_KEY_W: fSpeed := 2;
+	ALLEGRO_KEY_DOWN, ALLEGRO_KEY_S: fSpeed := -2;
 	ALLEGRO_KEY_RIGHT: fRotSpeed := 0.025;
 	ALLEGRO_KEY_LEFT: fRotSpeed := -0.025;
 	ALLEGRO_KEY_A: fStrafe := -1;
@@ -167,19 +167,20 @@ IMPLEMENTATION
 
     IF SELF.AngY > ALLEGRO_PI * 2 THEN SELF.AngY := SELF.AngY - (ALLEGRO_PI * 2);
     IF SELF.AngY < 0 THEN SELF.AngY := SELF.AngY + (ALLEGRO_PI * 2);
-    IF SELF.HorizonLine < -100 THEN SELF.HorizonLine := -100;
-    IF SELF.HorizonLine > 320 THEN SELF.HorizonLine := 320;
+    IF SELF.HorizonLine < -HEIGHT THEN SELF.HorizonLine := -HEIGHT;
+    IF SELF.HorizonLine > HEIGHT THEN SELF.HorizonLine := HEIGHT;
     IF fH < 1 THEN fH := 1;
     IF fH > 16 THEN fH := 16;
 
     SELF.X := SELF.X + (cos (SELF.AngY) * fSpeed) + (cos (SELF.AngY + (ALLEGRO_PI / 2)) * fStrafe);
     SELF.Z := SELF.Z + (sin (SELF.AngY) * fSpeed) + (sin (SELF.AngY + (ALLEGRO_PI / 2)) * fStrafe);
-    SELF.Y := TheDemo.Heightmap.Height[TRUNC (SELF.X), TRUNC (SELF.Z)] + fH;
 
     IF SELF.X < 0 THEN SELF.X := 0;
     IF SELF.X >= TheDemo.Heightmap.Width THEN SELF.X := TheDemo.Heightmap.Width - 1;
     IF SELF.Z < 0 THEN SELF.Z := 0;
-    IF SELF.Z >= TheDemo.Heightmap.Long THEN SELF.Z := TheDemo.Heightmap.Long - 1
+    IF SELF.Z >= TheDemo.Heightmap.Long THEN SELF.Z := TheDemo.Heightmap.Long - 1;
+
+    SELF.Y := TheDemo.Heightmap.Height[TRUNC (SELF.X), TRUNC (SELF.Z)] + fH;
   END;
 
 
@@ -290,7 +291,7 @@ IMPLEMENTATION
 	      fHeightmap.Load (ParamStr (1), ParamStr (2))
 	    ELSE
 	      fHeightmap.CreateRandom (1024, 1024);
-	    fHeightmap.SetSkyColor (al_map_rgb (0, 204, 204));
+	    fHeightmap.SetSkyColor (al_map_rgb (120, 204, 255));
 	    fMap := fHeightmap.ColorMap;
 	    fTerminated := FALSE;
 	    EXIT
@@ -320,19 +321,19 @@ IMPLEMENTATION
 
   VAR
     Event: ALLEGRO_EVENT;
-    BmpTmp: ALLEGRO_BITMAPptr;
+    //BmpTmp: ALLEGRO_BITMAPptr;
     MapFactor, MapScale: DOUBLE;
   BEGIN
     IF NOT fTerminated THEN
     TRY
     { To do zoom. }
-      BmpTmp := al_create_bitmap (320, 240);
+      //BmpTmp := al_create_bitmap (WIDTH, HEIGHT);
       MapFactor := fHeightmap.Long / fHeightmap.Width;
       MapScale := 128 / fHeightmap.Width;
     { Camera. }
       fCamera.X := fHeightmap.Width / 2;
       fCamera.Z := fHeightmap.Long / 2;
-      fCamera.SetViewport (320, 240, ALLEGRO_PI / 3);
+      fCamera.SetViewport (WIDTH, HEIGHT, ALLEGRO_PI / 3);
     { Run }
       al_start_timer (fTimer);
       REPEAT
@@ -358,12 +359,14 @@ IMPLEMENTATION
 	    fCamera.Update;
 	    IF al_is_event_queue_empty (fEventQueue) THEN
 	    BEGIN
-	      al_set_target_bitmap (BmpTmp);
+
+	      {al_set_target_bitmap (BmpTmp);
 	      fHeightmap.Render (fCamera);
 	      al_set_target_bitmap (al_get_backbuffer (fDisplay));
-	      al_draw_scaled_bitmap (
-	        BmpTmp, 0, 0, 320, 240,
-	        0, 0, WIDTH, HEIGHT, 0);
+	      al_draw_bitmap (BmpTmp, 0, 0, 0);}
+              al_set_target_bitmap (al_get_backbuffer (fDisplay));
+              fHeightmap.Render (fCamera);
+
 	      al_draw_scaled_bitmap (
 	        fMap, 0, 0, fHeightmap.Width, fHeightmap.Long,
 	        0, 0, 128, 120 * MapFactor, 0);
@@ -389,7 +392,7 @@ IMPLEMENTATION
       END
     END;
 
-    al_destroy_bitmap (BmpTmp);
+    //al_destroy_bitmap (BmpTmp);
   END;
 
 

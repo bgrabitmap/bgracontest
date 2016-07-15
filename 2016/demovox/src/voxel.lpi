@@ -29,6 +29,7 @@
     <RunParams>
       <local>
         <FormatVersion Value="1"/>
+        <CommandLineParams Value="height-2.pcx ground.pcx"/>
       </local>
     </RunParams>
     <Units Count="3">
