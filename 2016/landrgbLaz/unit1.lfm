@@ -1,0 +1,24 @@
+object Form1: TForm1
+  Cursor = crCross
+  Left = 479
+  Height = 240
+  Top = 190
+  Width = 320
+  Caption = 'LandrgbLaz01'
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  OnKeyDown = FormKeyDown
+  OnKeyUp = FormKeyUp
+  OnMouseDown = FormMouseDown
+  OnMouseMove = FormMouseMove
+  OnMouseWheel = FormMouseWheel
+  OnPaint = FormPaint
+  LCLVersion = '1.4.0.4'
+  object Timer1: TTimer
+    Enabled = False
+    Interval = 30
+    OnTimer = Timer1Timer
+    left = 8
+    top = 48
+  end
+end

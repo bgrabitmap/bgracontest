@@ -1,0 +1,73 @@
+----------------------------Mouse Controls:----------------------------------
+
+
+MouseLeftClick: Toggle pitch mode on/off.
+
+Mouse X	position: Turn left & right (yaw left/right).
+
+Mouse Y	position: Forwards and backwords thrust... 
+
+ ...LeftClick into pitch mode to Climb & Dive at current thrust...
+
+ ...Backwords thrust in pitch mode will take you backwords into...
+
+ ...the air. LeftClick again to fly at the new altitude. 
+
+MouseWheel: Look up and down (Pitch up/down)
+
+
+---------------------------Key Controls:-------------------------------------
+
+
+Up/Down Arrows: Forward/Backwards thrust.
+
+Left Arrow: Left thrust. Hold key & move mouse to right to fly...
+
+                           ...in circles around a ground feature
+
+Right Arrow: Right thrust. Hold key & move mouse to left to fly...
+
+                           ...in circles around a ground feature
+
+NumberPad Left/Right Arrows: Turn left & right (yaw left/right).
+
+NumberPad Up/Down Arrows: Altitude up/down.
+
+NumberPad Home/End: Look up and down (Pitch up/down)
+
+SpaceBar: Return to initial start position.
+
+Pkey: Pause/Resume - Cursor hidden while paused.
+
+Zkey: Halt scene motion until next mouse move. Height, position & direction 
+are maitained but can still be changed by keyboard. Press Pause(P) to freeze that
+view e.g.for screenshot. Press Pause(P) again to Resume. 
+
+
+--------------------------------Note1:--------------------------------------
+
+No ground detection (yet) so near the ground altitude mimimum prevents crash
+landing and pitch zeroes, to face horizon.
+
+--------------------------------Note2:--------------------------------------
+
+If you remove altitude mimimum and go below ground, you'll see just columns
+of colour filling the screen (surface colour)  so you'll probably get lost.
+
+--------------------------------Note3:--------------------------------------
+
+If you want to make your own three maps then:
+
+The Height Map (TempBGRAImg in LoadTextures) was made using a 'New' (white)
+1024x1024 Grayscale image in PhotoShop and applying 'Effect,Render,Cloud
+Effect' and saved as 8bit Windows Bitmap.
+
+The Ground Map (ColMapImage in LoadTextures) must also be 1024x1024 but saved
+as a 24bit Windows Bitmap. It should be tiled in both directions.
+
+The Sky Map (SkyMapImage in MakeSkyMap) must be a 2048x256 24bit Windows
+Bitmap. I made mine with 16 images stitched together to form a 360 degree
+panorama.
+
+Happy coding - RWC 
+--------------------------------The End:------------------------------------
